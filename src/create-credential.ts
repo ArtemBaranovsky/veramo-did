@@ -1,14 +1,16 @@
 import { agent } from './veramo/setup.js'
 
 async function main() {
-  const identifier = await agent.didManagerGetByAlias({ alias: 'default' })
+  const identifier = await agent.didManagerGetByAlias({ alias: 'exercise-1' })
 
   const verifiableCredential = await agent.createVerifiableCredential({
     credential: {
       issuer: { id: identifier.did },
       credentialSubject: {
         id: 'did:web:example.com',
-        you: 'Rock',
+        you: 'Artem Baranovskyi',
+        studentID: '1005455',
+        passport: 'FB924956'
       },
     },
     proofFormat: 'jwt',
